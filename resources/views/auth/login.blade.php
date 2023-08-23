@@ -34,7 +34,7 @@
                 <img src="{{ asset('assets/img/login/login.png')}}" alt="image" class="form-image">
             </div>
             <div class="section mt-1">
-                <h1>Asigo Polnustar</h1>
+                <h1>Prego Polnustar</h1>
                 <h4>Silahkan Login</h4>
             </div>
             <div class="section mt-1 mb-5">
