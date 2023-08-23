@@ -50,7 +50,7 @@ class PresensiController extends Controller
         $fileName = $formatName . ".png";
         $file = $folderPath . $fileName;
                
-        if($radius > 10){
+        if($radius > 100){
             echo "error|Maaf Anda Berada Diluar Radius, jarak Anda ".$radius." meter dari Kantor|radius";
         }else{
         
