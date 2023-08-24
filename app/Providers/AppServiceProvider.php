@@ -22,12 +22,12 @@ class AppServiceProvider extends ServiceProvider
     {
         Paginator::useBootstrap();
 
-        if (env('APP_ENV') === 'production') {
-            $url = \Request::url();
-            if ($check) {
-                $newUrl = str_replace("http", "https", $url);
-                header("Location:" . $newUrl);
-            }
-        }
+        // if (env('APP_ENV') === 'production') {
+        //     $url = \Request::url();
+        //     if ($check) {
+        //         $newUrl = str_replace("http", "https", $url);
+        //         header("Location:" . $newUrl);
+        //     }
+        // }
     }
 }
