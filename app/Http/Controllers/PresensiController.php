@@ -144,9 +144,9 @@ class PresensiController extends Controller
                 $folderPath="public/uploads/pegawai/";
                 $request->file('foto')->storeAs($folderPath, $foto);
             }
-            return redirect('/editprofil')->with(['success'=>'Data Berhasil Di Update']);
+            return redirect('/editprofile')->with(['success'=>'Data Berhasil Di Update']);
         }else{
-            return redirect('/editprofil')->with(['error'=>'Data Gagal Di Update']);
+            return redirect('/editprofile')->with(['error'=>'Data Gagal Di Update']);
         }
     }
 
