@@ -149,7 +149,7 @@ class PresensiController extends Controller
             return redirect('/editprofile')->with(['error'=>'Data Gagal Di Update']);
         }
     }
-
+    
     public function histori()
     {
         $namabulan =["","Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];

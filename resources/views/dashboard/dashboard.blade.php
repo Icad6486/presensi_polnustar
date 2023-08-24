@@ -1,8 +1,24 @@
 @extends('layouts.presensi')
 @section('content')
 <!-- App Capsule -->
+<style>
+    .Logout{
+        position: absolute;
+        color: white;
+        font-size: 30px;
+        text-decoration:none;
+        right:10px;
+        top:10px;
+    }
+    .Logout:hover{
+        color:white;
+    }
+</style>
 <div id="appCapsule">
         <div class="section" id="user-section">
+            <a href="/proseslogout" class="Logout">
+                <ion-icon name="log-out-outline" class="btn-danger rounded"></ion-icon>
+            </a>
             <div id="user-detail">
                 <div class="avatar">
                     @if(!empty(Auth::guard('pegawai')->user()->foto))
