@@ -21,5 +21,13 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Paginator::useBootstrap();
+
+        if (env('APP_ENV') === 'production') {
+            $url = \Request::url();
+            if ($check) {
+                $newUrl = str_replace("http", "https", $url);
+                header("Location:" . $newUrl);
+            }
+        }
     }
 }
