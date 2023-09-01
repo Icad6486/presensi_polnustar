@@ -23,7 +23,7 @@
                 <div class="avatar">
                     @if(!empty(Auth::guard('pegawai')->user()->foto))
                     @php
-                        $path = Storage::url('uploads/pegawai/'.Auth::guard('pegawai')->user()->foto);
+                        $path = Storage::url('public/uploads/pegawai/'.Auth::guard('pegawai')->user()->foto);
                     @endphp
                     <img src="{{url($path)}}" alt="avatar" class="imaged w64 rounded">
                     @else
@@ -95,7 +95,7 @@
                                     <div class="iconpresence">
                                         @if ($presensihariini !== null)
                                         @php
-	                                    $path= Storage::url('uploads/absensi/'.$presensihariini->foto_in);
+	                                    $path= Storage::url('public/uploads/absensi/'.$presensihariini->foto_in);
                                         @endphp
                                         <img src="{{url($path)}}"alt="" class="imaged w48">
                                         @else
@@ -117,7 +117,7 @@
                                     <div class="iconpresence">
                                         @if ($presensihariini !== null && $presensihariini->jam_keluar !== null)
                                         @php
-	                                    $path= Storage::url('uploads/absensi/'.$presensihariini->foto_out);
+	                                    $path= Storage::url('public/uploads/absensi/'.$presensihariini->foto_out);
                                         @endphp
                                         <img src="{{url($path)}}"alt="" class="imaged w48">
                                         @else
@@ -205,7 +205,7 @@
                         <ul class="listview image-listview">
                             @foreach ($historibulanini as $d)
                             @php
-	                            $path= Storage::url('uploads/absensi/'.$d->foto_in)
+	                            $path= Storage::url('public/uploads/absensi/'.$d->foto_in)
                             @endphp
                             <li>
                                 <div class="item">
