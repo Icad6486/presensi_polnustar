@@ -131,7 +131,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form action="#" method="POST">
+            <form action="/pegawai/store" method="POST" id="frmPegawai" enctype="mulitpart/form-data">
                 <div class="row">
                     <div class="col-12">
                         <div class="input-icon mb-3">
@@ -146,7 +146,7 @@
                                 <path d="M7 16l10 0"></path>
                                 </svg>
                             </span>
-                            <input type="text" value="" class="form-control" name="nik" placeholder="NIK/NIP">
+                            <input type="text" value="" id="nik" class="form-control" name="nik" placeholder="NIK/NIP">
                         </div>
                     </div>
                 </div>
@@ -161,7 +161,7 @@
                                 <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
                                 </svg>
                             </span>
-                            <input type="text" value="" class="form-control" name="nama_lengkap" placeholder="Nama Lengkap">
+                            <input type="text" value="" id="nama_lengkap" class="form-control" name="nama_lengkap" placeholder="Nama Lengkap">
                         </div>
                     </div>
                 </div>
@@ -180,7 +180,7 @@
                                 <path d="M3 13v-1a2 2 0 0 1 2 -2h2"></path>
                                 </svg>
                             </span>
-                            <input type="text" value="" class="form-control" name="jabatan" placeholder="Jabatan">
+                            <input type="text" value="" id="jabatan" class="form-control" name="jabatan" placeholder="Jabatan">
                         </div>
                     </div>
                 </div>
@@ -194,13 +194,13 @@
                                 <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"></path>
                                 </svg>
                             </span>
-                            <input type="text" value="" class="form-control" name="no_hp" placeholder="No. HP">
+                            <input type="text" value="" id="no_hp" class="form-control" name="no_hp" placeholder="No. HP">
                         </div>
                     </div>
                 </div>
                 <div class="row mt-2">
                     <div class="col-12">
-                        <input type="file" class="form-control">
+                        <input type="file" name="foto" class="form-control">
                     </div>
                 </div>
                 <div class="row mt-2">
@@ -238,6 +238,70 @@
     $(function(){
         $("#btnTambahpegawai").click(function(){
             $("#modal-inputpegawai").modal("show");
+        });
+
+        $("#frmPegawai").submit(function(){
+            var nik = $("#nik").val();
+            var nama_lengkap = $("#nama_lengkap").val();
+            var jabatan = $("#jabatan").val();
+            var no_hp = $("#no_hp").val();
+            var kode_unit=$("#kode_unit").val();
+            if(nik==""){
+                //alert('NIK/NIP harus di isi');
+                Swal.fire({
+                    title: 'Warning!',
+                    text: 'NIK/NIP harus di isi',
+                    icon: 'warning',
+                    confirmButtonText: 'Ok'
+                }).then(()=>{
+                    $("#nik").focus();
+                });                
+                return false;
+                
+            }else if(nama_lengkap==""){
+                Swal.fire({
+                    title: 'Warning!',
+                    text: 'Nama harus di isi',
+                    icon: 'warning',
+                    confirmButtonText: 'Ok'
+                }).then(()=>{
+                    $("#nama_lengkap").focus();
+                });                
+                return false;
+
+            }else if(jabatan==""){
+                Swal.fire({
+                    title: 'Warning!',
+                    text: 'Jabatan harus di isi',
+                    icon: 'warning',
+                    confirmButtonText: 'Ok'
+                }).then(()=>{
+                    $("#jabatan").focus();
+                });                
+                return false;
+
+            }else if(no_hp==""){
+                Swal.fire({
+                    title: 'Warning!',
+                    text: 'No. HP harus di isi',
+                    icon: 'warning',
+                    confirmButtonText: 'Ok'
+                }).then(()=>{
+                    $("#no_hp").focus();
+                });                
+                return false;
+
+            }else if(kode_unit==""){
+                Swal.fire({
+                    title: 'Warning!',
+                    text: 'Unit Kerja harus di isi',
+                    icon: 'warning',
+                    confirmButtonText: 'Ok'
+                }).then(()=>{
+                    $("#no_hp").focus();
+                });                
+                return false;
+            }
         });
     });
 </script>

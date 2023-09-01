@@ -26,4 +26,13 @@ class PegawaiController extends Controller
         $unit_kerja = DB::table('tabel_unit')->get();
         return view('pegawai.index',compact('pegawai','unit_kerja'));
     }
+
+    public function store(Request $request)
+    {
+        $nik= $request->nik;
+        $nama_lengkap= $request->nama_lengkap;
+        $jabatan= $request->jabatan;
+        $no_hp= $request->no_hp;
+        $kode_unit= $request->kode_unit;
+    }
 }

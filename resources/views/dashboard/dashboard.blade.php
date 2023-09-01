@@ -23,7 +23,7 @@
                 <div class="avatar">
                     @if(!empty(Auth::guard('pegawai')->user()->foto))
                     @php
-                        $path = Storage::url('uploads/pegawai/'.Auth::guard('pegawai')->user()->foto);
+                        $path = Storage::url('public/uploads/pegawai/'.Auth::guard('pegawai')->user()->foto);
                     @endphp
                     <img src="{{url($path)}}" alt="avatar" class="imaged w64 rounded">
                     @else
@@ -95,7 +95,7 @@
                                     <div class="iconpresence">
                                         @if ($presensihariini !== null)
                                         @php
-	                                    $path= Storage::url('uploads/absensi/'.$presensihariini->foto_in);
+	                                    $path= Storage::url('public/uploads/absensi/'.$presensihariini->foto_in);
                                         @endphp
                                         <img src="{{url($path)}}"alt="" class="imaged w48">
                                         @else
@@ -117,7 +117,7 @@
                                     <div class="iconpresence">
                                         @if ($presensihariini !== null && $presensihariini->jam_keluar !== null)
                                         @php
-	                                    $path= Storage::url('uploads/absensi/'.$presensihariini->foto_out);
+	                                    $path= Storage::url('public/uploads/absensi/'.$presensihariini->foto_out);
                                         @endphp
                                         <img src="{{url($path)}}"alt="" class="imaged w48">
                                         @else
@@ -214,7 +214,7 @@
                                     </div>
                                     <div class="in">
                                         <div>{{date("d-m-Y",strtotime($d->tgl_presensi))}}</div>
-                                        <span class="badge {{$d->jam_masuk <"07:00:01" ? "bg-success" : "bg-warning" }}">{{$d->jam_masuk}}</span>
+                                        <span class="badge {{$d->jam_masuk <"07:30:01" ? "bg-success" : "bg-warning" }}">{{$d->jam_masuk}}</span>
                                         <span class="badge badge-danger">{{$presensihariini !== null && $d->jam_keluar !==null ? $d->jam_keluar:"Belum Absen"}}</span>
                                     </div>
                                 </div>
@@ -233,7 +233,7 @@
                                             <b>{{$d->nama_lengkap}}</b><br>
                                             <small class="text-muted">{{$d->jabatan}}</small>
                                         </div>
-                                        <span class="badge {{$d->jam_masuk <"07:00:01" ? "bg-success" : "bg-warning" }}">
+                                        <span class="badge {{$d->jam_masuk <"07:30:01" ? "bg-success" : "bg-warning" }}">
                                         {{$d->jam_masuk}}
                                         </span>
                                     </div>
