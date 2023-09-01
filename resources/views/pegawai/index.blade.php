@@ -88,7 +88,7 @@
                                     <tbody>
                                         @foreach ($pegawai as $d)
                                         @php
-                                            $path = Storage::url('uploads/pegawai/'.$d->foto);                                
+                                            $path = Storage::url('public/uploads/pegawai/'.$d->foto);                                
                                         @endphp
                                         <tr>
                                             <td>{{$loop->iteration + $pegawai->firstItem() -1}}</td>
