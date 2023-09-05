@@ -21,6 +21,21 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
+                        <div class="col-12">                                
+                                @if (Session::get('success'))
+                                <div class="alert alert-success">
+                                    {{Session::get('success')}}                              
+                                </div>
+                                @endif
+                                
+                                @if (Session::get('warning'))
+                                <div class="alert alert-warning">
+                                    {{Session::get('warning')}}
+                                </div>
+                                @endif     
+                            </div>                            
+                        </div>
+                        <div class="row">
                             <div class="col-12">
                                 <a href="#" class="btn btn-primary" id="btnTambahpegawai">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-users-plus" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -132,6 +147,7 @@
           </div>
           <div class="modal-body">
             <form action="/pegawai/store" method="POST" id="frmPegawai" enctype="mulitpart/form-data">
+                @csrf
                 <div class="row">
                     <div class="col-12">
                         <div class="input-icon mb-3">
@@ -245,7 +261,7 @@
             var nama_lengkap = $("#nama_lengkap").val();
             var jabatan = $("#jabatan").val();
             var no_hp = $("#no_hp").val();
-            var kode_unit=$("#kode_unit").val();
+            var kode_unit=$("frmPegawai").find("#kode_unit").val();
             if(nik==""){
                 //alert('NIK/NIP harus di isi');
                 Swal.fire({

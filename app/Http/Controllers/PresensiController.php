@@ -17,16 +17,19 @@ class PresensiController extends Controller
         $hariini = date("Y-m-d");
         $nik = Auth::guard('pegawai')->user()->nik;
         $cek = DB::table('presensi')->where('tgl_presensi',$hariini)->where('nik', $nik)->count();
-        return view('presensi.create',compact('cek'));
+        $lok_kantor = DB::table('konfigurasi_lokasi')->where('id',1)->first();        
+        return view('presensi.create',compact('cek','lok_kantor'));
     }
 
     public function store(Request $request)
     {
         $nik = Auth::guard('pegawai')->user()->nik;
         $tgl_presensi = date("Y-m-d");
-        $jam = date("H:i:s");        
-        $latitudekantor=3.6103044;
-        $longitudekantor=125.4873136;
+        $jam = date("H:i:s");
+        $lok_kantor = DB::table('konfigurasi_lokasi')->where('id',1)->first();
+        $lok = explode(",", $lok_kantor->lokasi_kantor);               
+        $latitudekantor=$lok[0];
+        $longitudekantor=$lok[1];
         $lokasi = $request->lokasi;
         $lokasiuser =explode(",", $lokasi);
         $latitudeuser= $lokasiuser[0];
