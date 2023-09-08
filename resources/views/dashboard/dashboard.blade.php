@@ -214,7 +214,7 @@
                                     </div>
                                     <div class="in">
                                         <div>{{date("d-m-Y",strtotime($d->tgl_presensi))}}</div>
-                                        <span class="badge {{$d->jam_masuk <"07:30:01" ? "bg-success" : "bg-warning" }}">{{$d->jam_masuk}}</span>
+                                        <span class="badge {{$d->jam_masuk <"08:00:01" ? "bg-success" : "bg-warning" }}">{{$d->jam_masuk}}</span>
                                         <span class="badge badge-danger">{{$presensihariini !== null && $d->jam_keluar !==null ? $d->jam_keluar:"Belum Absen"}}</span>
                                     </div>
                                 </div>
@@ -237,7 +237,7 @@
                                             <b>{{$d->nama_lengkap}}</b><br>
                                             <small class="text-muted">{{$d->jabatan}}</small>
                                         </div>
-                                        <span class="badge {{$d->jam_masuk <"07:30:01" ? "bg-success" : "bg-warning" }}">
+                                        <span class="badge {{$d->jam_masuk <"08:00:01" ? "bg-success" : "bg-warning" }}">
                                         {{$d->jam_masuk}}
                                         </span>
                                     </div>
