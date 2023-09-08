@@ -227,7 +227,11 @@
                             @foreach($leaderboard as $d)
                             <li>
                                 <div class="item">
-                                <img src="assets/img/sample/avatar/avatar1.jpg" alt="image" class="image">
+                                @php
+                                $path = Storage::url('uploads/absensi/'.$d->foto_in);
+                                 @endphp
+                                <img src="{{url($path)}}" alt="image" class="image">
+                                <!-- <img src="assets/img/sample/avatar/avatar1.jpg" alt="image" class="image"> -->
                                     <div class="in">
                                         <div>
                                             <b>{{$d->nama_lengkap}}</b><br>

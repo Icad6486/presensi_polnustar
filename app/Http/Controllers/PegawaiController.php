@@ -62,8 +62,8 @@ class PegawaiController extends Controller
                 return Redirect::back()->with(['success' => 'Data berhasil disimpan']);
             } 
         } catch (\Exception $e) {
-            //dd($e);
-            return Redirect::back()->with(['error' => 'Data gagal disimpan']);
+            //dd($e->message);
+            return Redirect::back()->with(['warning' => 'Data gagal disimpan']);
         }
     }
 }
