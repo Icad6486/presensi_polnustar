@@ -58,29 +58,29 @@
     </div>
 </div>
 <!-- source code baru -->
-<!-- <div class="fab-button animate bottom-right dropdown" style="margin-bottom:70px">
+<div class="fab-button animate bottom-right dropdown" style="margin-bottom:70px">
     <a href="#" class="fab bg-primary" data-toggle="dropdown">
         <ion-icon name="add-outline" role="img" class="md hydrated" aria-label="add outline"></ion-icon>
     </a>
     <div class="dropdown-menu">
-        <a class="dropdown-item bg-primary" href="/pengajuanizin/createizinabsen">
+        <a class="dropdown-item bg-primary" href="/izinabsen">
             <ion-icon name="document-outline" role="img" class="md hydrated" aria-label="image outline"></ion-icon>
             <p>Izin Absen</p>
         </a>
-        <a class="dropdown-item bg-primary" href="/pengajuanizin/createsakit">
+        <a class="dropdown-item bg-primary" href="/izinsakit">
             <ion-icon name="document-outline" role="img" class="md hydrated" aria-label="videocam outline"></ion-icon>
             <p>Sakit</p>
         </a>
-        <a class="dropdown-item bg-primary" href="/pengajuanizin/createcuti">
+        <a class="dropdown-item bg-primary" href="/izincuti">
             <ion-icon name="document-outline" role="img" class="md hydrated" aria-label="videocam outline"></ion-icon>
             <p>Cuti</p>
         </a>
     </div>
-</div> -->
+</div>
 <!-- source code lama -->
-<div class="fab-button bottom-right" style="margin-bottom:70px;">
+<!-- <div class="fab-button bottom-right" style="margin-bottom:70px;">
     <a href="/presensi/buatizin" class="fab">
         <ion-icon name="add-outline"></ion-icon>
     </a>
-</div>
+</div> -->
 @endsection

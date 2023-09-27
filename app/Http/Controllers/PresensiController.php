@@ -212,5 +212,60 @@ class PresensiController extends Controller
             return redirect('/presensi/izin')->with(['error'=>'Data gagal disimpan']);
         }
     }
+
+    public function monitoring()
+    {
+        return view('presensi.monitoring');
+    }
+
+    public function getpresensi(Request $request)
+    {
+        $tanggal = $request->tanggal;
+        $presensi = DB::table('presensi')
+        ->select('presensi.*','nama_lengkap','nama_unit')
+        ->join('pegawai','presensi.nik','=','pegawai.nik')
+        ->join('tabel_unit','pegawai.kode_unit','=','tabel_unit.kode_unit')
+        ->where('tgl_presensi',$tanggal)
+        ->get();
+
+        return view('presensi.getpresensi',compact('presensi'));
+    }
+
+    public function tampilkanpeta(Request $request)
+    {
+        $id = $request->id;
+        $presensi = DB::table('presensi')->where('id',$id)
+        ->join('pegawai','presensi.nik','pegawai.nik')
+        ->first();
+        return view('presensi.showmap',compact('presensi'));
+    }
+
+    public function laporan()
+    {
+        $namabulan =["","Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+        $pegawai = DB::table('pegawai')->orderBy('nama_lengkap')->get();
+        return view('presensi.laporan',compact('namabulan','pegawai'));
+    }
+
+    public function cetaklaporan(Request $request)
+    {
+        $nik = $request->nik;
+        $bulan = $request->bulan;
+        $tahun = $request->tahun;
+        $namabulan =["","Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+        $pegawai = DB::table('pegawai')->where('nik',$nik)
+        ->join('tabel_unit','pegawai.kode_unit','=','tabel_unit.kode_unit')
+        ->first();
+
+        $presensi = DB::table('presensi')
+        ->where('nik',$nik)
+        ->whereRaw('MONTH(tgl_presensi)="'.$bulan.'"')
+        ->whereRaw('YEAR(tgl_presensi)="'.$tahun.'"')
+        ->get();
+        
+        return view('presensi.cetaklaporan',compact('bulan','tahun','namabulan','pegawai','presensi'));
+        
+
+    }
 }
  

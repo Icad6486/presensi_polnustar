@@ -3,6 +3,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PresensiController;
 use App\Http\Controllers\PegawaiController;
+use App\Http\Controllers\izinabsenController;
+use App\Http\Controllers\UnitkerjaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -49,6 +51,9 @@ Route::middleware(['auth:pegawai'])->group(function () {
     Route::get('/presensi/izin',[PresensiController::class,'izin']);
     Route::get('/presensi/buatizin',[PresensiController::class,'buatizin']);
     Route::post('/presensi/storeizin',[PresensiController::class,'storeizin']);
+
+    //Izin Absen
+    Route::get('/izinabsen',[izinabsenController::class,'create']);
     
 });
 
@@ -59,6 +64,23 @@ Route::middleware(['auth:user'])->group(function () {
     //Pegawai
     Route::get('/pegawai',[PegawaiController::class,'index']);
     Route::post('/pegawai/store',[PegawaiController::class,'store']);
+    Route::post('/pegawai/edit',[PegawaiController::class,'edit']);
+    Route::post('/pegawai/{nik}/update',[PegawaiController::class,'update']);
+    Route::post('/pegawai/{nik}/delete',[PegawaiController::class,'delete']);
+
+    //Unit Kerja
+    Route::get('/unitkerja',[UnitkerjaController::class,'index']);
+    Route::post('/unitkerja/store',[UnitkerjaController::class,'store']);
+    Route::post('/unitkerja/edit',[UnitkerjaController::class,'edit']);
+    Route::post('/unitkerja/{kode_uni}/update',[UnitkerjaController::class,'update']);
+    Route::post('/unitkerja/{kode_uni}/delete',[UnitkerjaController::class,'delete']);
+
+    //Presensi
+    Route::get('/presensi/monitoring',[PresensiController::class,'monitoring']);
+    Route::post('/getpresensi',[PresensiController::class,'getpresensi']);
+    Route::post('/tampilkanpeta',[PresensiController::class,'tampilkanpeta']);
+    Route::get('/presensi/laporan',[PresensiController::class,'laporan']);
+    Route::post('/presensi/cetaklaporan',[PresensiController::class,'cetaklaporan']);
 });
 
 
