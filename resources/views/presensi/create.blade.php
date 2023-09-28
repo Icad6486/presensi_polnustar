@@ -75,7 +75,7 @@
 <script>
 var notifikasi_in = document.getElementById('notifikasi_in');
 var notifikasi_out = document.getElementById('notifikasi_out');
-var rasius_sound = document.getElementById('radius_sound');
+var radius_sound = document.getElementById('radius_sound');
    Webcam.set({
         height: 480,
         width: 640,
