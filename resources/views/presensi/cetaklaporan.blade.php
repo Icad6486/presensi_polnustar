@@ -95,8 +95,12 @@
         <td rowspan="7">
           @php
           $path = Storage::url('uploads/pegawai/'.$pegawai->foto)
-          @endphp          
-          <img src="{{url($path)}}" alt="" width="100" height="120">
+          @endphp
+          @if (empty($d->foto))
+            <img src="{{url($path)}}" alt="" width="100" height="120">
+          @else
+            <img src="{{asset('assets/img/no-image.png')}}" alt="" width="100" height="120">
+          @endif        
         </td>
       </tr>
       <tr>
