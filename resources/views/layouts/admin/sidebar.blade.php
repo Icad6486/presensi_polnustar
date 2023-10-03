@@ -207,7 +207,7 @@
                       <a class="dropdown-item" href="/presensi/laporan">
                         Presensi
                       </a>
-                      <a class="dropdown-item" href="#">
+                      <a class="dropdown-item" href="/presensi/rekap">
                         Rekap Presensi
                       </a>
                       
